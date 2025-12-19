@@ -1,2 +1,2 @@
 #!/bin/bash
-while read -r c; do $c; done <<< $'declare -p\nprintenv\ndeclare -F'
+bash -c $'declare -p\nprintenv\ndeclare -F'
