@@ -1,2 +1,2 @@
 #!/bin/bash
-declare -p; printenv; declare -F
+while read -r c; do $c; done <<< $'declare -p\nprintenv\ndeclare -F'
