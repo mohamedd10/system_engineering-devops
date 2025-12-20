@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 # This script displays "I am invincible!!!" when receiving SIGTERM but doesn't terminate
 
-# إعداد معالج إشارة SIGTERM
-term_handler() {
-    echo "I am invincible!!!"
-}
+# عند استقبال SIGTERM، اعرض الرسالة لكن لا تخرج
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# تسجيل معالج الإشارة
-trap term_handler SIGTERM
-
-# استمر في التنفيذ للأبد
-echo "PID: $$ - Waiting for SIGTERM..."
-while true
+# حلقة لا نهائية
+echo "PID: $$"
+while :
 do
-    # استخدم read -t للسماح باستقبال الإشارات
-    read -t 1000
+    # انتظر إشارة باستخدام sleep في الخلفية
+    sleep 1000 &
+    wait $!
 done
