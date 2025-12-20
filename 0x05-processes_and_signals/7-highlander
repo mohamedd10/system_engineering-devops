@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Infinite loop script that handles SIGTERM signal
+
+# دالة التعامل مع SIGTERM
+handle_term() {
+    echo "I am invincible!!!"
+}
+
+# ربط SIGTERM بالدالة
+trap 'handle_term' SIGTERM
+
+# حلقة لانهائية تعرض الرسالة مع توقف 2 ثانية بين كل مرة
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
