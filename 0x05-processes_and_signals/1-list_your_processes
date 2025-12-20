@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script displays all currently running processes in a hierarchical format
 
-ps -e -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,comm --forestgf
+COLUMNS=200 ps -e --forest -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,args
