@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# This script lists files and prints the part after the first dash
+# This script lists files inside the simple directory and cuts before the first dash
 
-for file in *; do
-  # تجاهل الملفات اللي ما فيها Dash
-  if [[ "$file" == *-* ]]; then
-    echo "${file#*-}"
-  fi
+for file in simple/*; do
+  name=$(basename "$file")
+  echo "${name#*-}"
 done
