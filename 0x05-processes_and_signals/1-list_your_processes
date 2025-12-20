@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that lists all running processes in a user-oriented format
+
+ps -ef --forest
