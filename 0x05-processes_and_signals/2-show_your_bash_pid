@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script that shows only lines containing bash
+# shellcheck disable=SC2009
+
+ps -A -o user,pid,ppid,tty,%cpu,%mem,start,time,cmd --forest | grep bash
