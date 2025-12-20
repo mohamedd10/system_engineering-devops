@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
-# Infinite loop that prints "To infinity and beyond" and responds to SIGTERM
+# This script displays "I am invincible!!!" when receiving SIGTERM but doesn't terminate
 
-term_handler() {
+# دالة للتعامل مع إشارة SIGTERM
+handle_sigterm() {
     echo "I am invincible!!!"
 }
 
-trap term_handler SIGTERM
+# تسجيل دالة التعامل مع SIGTERM
+trap handle_sigterm SIGTERM
 
+# البرنامج يعمل إلى الأبد
+echo "PID: $$"
 while true; do
-    echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
