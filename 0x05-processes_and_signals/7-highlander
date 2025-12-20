@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
-# Infinite loop that prints "To infinity and beyond" every 2 seconds
-# Responds to SIGTERM by printing "I am invincible!!!" without exiting
+# Infinite loop that prints "To infinity and beyond" and responds to SIGTERM
 
-# دالة لمعالجة SIGTERM
 term_handler() {
     echo "I am invincible!!!"
 }
 
-# تسجيل المعالج لإشارة SIGTERM
 trap term_handler SIGTERM
 
-# حلقة لا نهائية
 while true; do
     echo "To infinity and beyond"
     sleep 2
