@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-# Displays the part of filenames after the first dash inside simple folder
+# This script displays the contents of the current directory
+# showing only the part after the first dash in each filename
 
-for file in simple/*; do
-    filename=$(basename "$file")
-    echo "${filename#*-}"
+# Loop through all files in the current directory
+for file in *
+do
+    # Check if it's a regular file (not a directory) and doesn't start with a dot
+    if [ -f "$file" ]; then
+        # Extract and display the part after the first dash
+        echo "$file" | cut -d'-' -f2-
+    fi
 done
