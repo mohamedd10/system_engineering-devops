@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Script that lists all running processes in a user-oriented format
 
-ps -ef --forest
+ps -A -o user,pid,ppid,tty,%cpu,%mem,start,time,cmd --forest
