@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# This script lists files inside the simple directory and cuts before the first dash
+# Displays the part of filenames after the first dash inside simple folder
 
 for file in simple/*; do
-  name=$(basename "$file")
-  echo "${name#*-}"
+    filename=$(basename "$file")
+    echo "${filename#*-}"
 done
