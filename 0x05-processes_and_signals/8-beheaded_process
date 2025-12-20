@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Forcefully kill the 7-highlander process using SIGKILL
+
+# الحصول على PID الخاص بالعملية
+pid=$(pgrep -f 7-highlander)
+
+# إذا تم العثور على العملية، إرسال SIGKILL
+if [ -n "$pid" ]; then
+    kill -9 "$pid"
+fi
