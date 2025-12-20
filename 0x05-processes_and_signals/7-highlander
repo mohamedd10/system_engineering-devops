@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
-# This script displays "I am invincible!!!" when receiving SIGTERM but doesn't terminate
+# This script displays "I am invincible!!!" when receiving a SIGTERM signal
 
-# معالج إشارة SIGTERM
-trap 'echo "I am invincible!!!"' SIGTERM
+# اعتراض إشارة SIGTERM (رقم 15) وتنفيذ أمر echo
+trap "echo 'I am invincible!!!'" SIGTERM
 
-# إنشاء ملف مؤقت
-TEMP_FILE=$(mktemp)
-echo "PID: $$" > "$TEMP_FILE"
-
-# استخدام tail -f الذي يستجيب للإشارات بشكل جيد
-tail -f "$TEMP_FILE" &
-TAIL_PID=$!
-
-# انتظر tail
-wait $TAIL_PID
-
-# تنظيف
-rm -f "$TEMP_FILE"
+# حلقة تكرار لا نهائية ليبقى السكربت قيد التشغيل
+while true
+do
+    echo "To infinity and beyond!!"
+    sleep 2
+done
